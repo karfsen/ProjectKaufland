@@ -1,5 +1,7 @@
 package sk.itsovy.sk.Bill;
 
+import org.json.simple.parser.ParseException;
+import sk.itsovy.sk.Internet;
 import sk.itsovy.sk.Items.Drink.DraftInterface;
 import sk.itsovy.sk.Items.Food.Fruit;
 import sk.itsovy.sk.Items.Item;
@@ -7,6 +9,7 @@ import sk.itsovy.sk.Global;
 import sk.itsovy.sk.Items.Pcs;
 import sk.itsovy.sk.exception.BillException;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -20,7 +23,8 @@ public class Bill {
     private LocalTime time;
     private LocalDate date;
 
-    public Bill(){
+
+    public Bill() throws IOException, ParseException {
         this.list = new ArrayList<>();
         open=true;
     }
@@ -50,7 +54,7 @@ public class Bill {
         }
     }
 
-    public void printBill(){
+    public void printBill() throws IOException, ParseException {
         if(pocet==0){
             System.out.println("Nothing to print , Bill is empty");
         }
@@ -71,6 +75,7 @@ public class Bill {
             }
         }
         System.out.println(getFinalPrice());
+        System.out.println(getFinalUSDPrice(Internet.executePost()));
     }
 
     public int getCount(){
@@ -103,6 +108,12 @@ public class Bill {
             }
         }
         return Math.round(total*100.0)/100.0;
+    }
+
+    public double getFinalUSDPrice(double usd){
+        //throw new UnsupportedOperationException("Method does not exists yet");
+        double total=getFinalPrice();
+        return Math.round(total*usd*100.0)/100.0;
     }
 
 
