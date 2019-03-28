@@ -2,6 +2,7 @@ package sk.itsovy.sk;
 
 import org.json.simple.parser.ParseException;
 import sk.itsovy.sk.Bill.Bill;
+import sk.itsovy.sk.Database.Database;
 import sk.itsovy.sk.Items.Drink.Bottle;
 import sk.itsovy.sk.Items.Drink.Draft;
 import sk.itsovy.sk.Items.Drink.Drink;
@@ -13,6 +14,7 @@ import sk.itsovy.sk.Items.Item;
 import sk.itsovy.sk.exception.BillException;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 
 public class Application {
@@ -30,7 +32,7 @@ public class Application {
 
     //--------------END
 
-    public void example() throws BillException, IOException, ParseException {
+    public void example() throws BillException, IOException, ParseException, SQLException {
         Bill bill=new Bill();
         Bottle milk=new Bottle("Milk 1,5%",0.59,2);
         bill.addItem(milk);
@@ -49,5 +51,7 @@ public class Application {
         bill.getFinalUSDPrice(Internet.executePost());
         bill.printBill();
         bill.end();
+        Database db=Database.getInstance();
+        db.insertNewBill(bill);
     }
 }

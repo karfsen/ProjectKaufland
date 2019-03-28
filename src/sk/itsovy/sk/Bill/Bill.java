@@ -10,9 +10,11 @@ import sk.itsovy.sk.Items.Pcs;
 import sk.itsovy.sk.exception.BillException;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -46,7 +48,9 @@ public class Bill {
             }
         }
     }
-
+    public ArrayList<Item> getBill(){
+        return (ArrayList<Item>) list;
+    }
     public void removeItem(Item item){
         if(list.contains(item)) {
             list.remove(item);
