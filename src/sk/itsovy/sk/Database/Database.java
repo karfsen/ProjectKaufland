@@ -20,7 +20,6 @@ public class Database {
     public static Database getInstance(){
         return db;
     }
-
     public void insertNewBill(Bill bill) throws SQLException {
         Connection conn = Global.getConnection();
         PreparedStatement sqlPreparedStatement = null;
@@ -53,7 +52,7 @@ public class Database {
                     statement.setString(5, "pcs");
                 }else if(i instanceof Fruit) {
                     statement.setDouble(4,((Fruit) i).getWeight());
-                    statement.setString(5, "kg");
+                    statement.setString(5, "g");
                 }else if(i instanceof DraftInterface) {
                     statement.setDouble(4,((DraftInterface) i).getVolume());
                     statement.setString(5, "l");

@@ -12,7 +12,10 @@ import sk.itsovy.sk.exception.BillException;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,8 +25,8 @@ public class Bill {
     boolean open;
     private int pocet;
     private List<Item> list;
-    private LocalTime time;
-    private LocalDate date;
+    private LocalDateTime date;
+
 
 
     public Bill() throws IOException, ParseException {
@@ -88,11 +91,8 @@ public class Bill {
 
     public void end() {
         if (open){
-            date=LocalDate.now();
-            time=LocalTime.now();
+            date=LocalDateTime.now();
             System.out.println("Date: "+date);
-
-            System.out.println("Time: "+time);
         }
         open=false;
     }
@@ -118,6 +118,10 @@ public class Bill {
         //throw new UnsupportedOperationException("Method does not exists yet");
         double total=getFinalPrice();
         return Math.round(total*usd*100.0)/100.0;
+    }
+
+    public LocalDateTime getTime() {
+        return date;
     }
 
 

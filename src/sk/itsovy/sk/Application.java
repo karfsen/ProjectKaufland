@@ -11,8 +11,11 @@ import sk.itsovy.sk.Items.Food.Pastry;
 import sk.itsovy.sk.Items.Goods.Category;
 import sk.itsovy.sk.Items.Goods.Goods;
 import sk.itsovy.sk.Items.Item;
+import sk.itsovy.sk.XML.Generatexml;
 import sk.itsovy.sk.exception.BillException;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -32,7 +35,7 @@ public class Application {
 
     //--------------END
 
-    public void example() throws BillException, IOException, ParseException, SQLException {
+    public void example() throws BillException, IOException, ParseException, SQLException, TransformerException, ParserConfigurationException {
         Bill bill=new Bill();
         Bottle milk=new Bottle("Milk 1,5%",0.59,2);
         bill.addItem(milk);
@@ -51,7 +54,11 @@ public class Application {
         bill.getFinalUSDPrice(Internet.executePost());
         bill.printBill();
         bill.end();
+        Generatexml xml=new Generatexml();
+        xml.generateXML(bill);
+
         Database db=Database.getInstance();
         db.insertNewBill(bill);
+
     }
 }
