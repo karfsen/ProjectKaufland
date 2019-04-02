@@ -2,8 +2,13 @@ package sk.itsovy.sk.Bill;
 
 import org.json.simple.parser.ParseException;
 import sk.itsovy.sk.Internet;
+import sk.itsovy.sk.Items.Drink.Bottle;
+import sk.itsovy.sk.Items.Drink.Draft;
 import sk.itsovy.sk.Items.Drink.DraftInterface;
 import sk.itsovy.sk.Items.Food.Fruit;
+import sk.itsovy.sk.Items.Food.Pastry;
+import sk.itsovy.sk.Items.Food.Sweets;
+import sk.itsovy.sk.Items.Goods.Goods;
 import sk.itsovy.sk.Items.Item;
 import sk.itsovy.sk.Global;
 import sk.itsovy.sk.Items.Pcs;
@@ -83,6 +88,30 @@ public class Bill {
         }
         System.out.println(getFinalPrice());
         System.out.println(getFinalUSDPrice(Internet.executePost()));
+    }
+
+    public void checkItem(Item item) {
+        for (Item i : list) {
+            if (i instanceof Bottle && item.getName().toLowerCase() == i.getName().toLowerCase()){
+                //TODO
+            }
+            if (i instanceof Draft && item.getName().toLowerCase() == i.getName().toLowerCase()){
+                //TODO
+            }
+            if (i instanceof Goods && item.getName().toLowerCase() == i.getName().toLowerCase()){
+
+            }
+            if (i instanceof Pastry && item.getName().toLowerCase() == i.getName().toLowerCase()){
+
+            }
+            if (i instanceof Fruit && item.getName().toLowerCase() == i.getName().toLowerCase()){
+
+            }
+            if (i instanceof Sweets && item.getName().toLowerCase() == i.getName().toLowerCase()){
+
+            }
+
+        }
     }
 
     public int getCount(){

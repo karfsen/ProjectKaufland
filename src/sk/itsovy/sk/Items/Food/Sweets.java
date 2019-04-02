@@ -21,4 +21,8 @@ public class Sweets extends Food implements Pcs {
     public int getAmount() {
         return amount;
     }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 }

@@ -19,4 +19,8 @@ public class Fruit extends Food {
     public double getWeight() {
         return weight;
     }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
 }

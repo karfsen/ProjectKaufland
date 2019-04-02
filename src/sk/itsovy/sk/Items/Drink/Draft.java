@@ -16,4 +16,8 @@ public class Draft extends Drink implements DraftInterface{
     public double getTotalPrice() {
         return volume*getPrice();
     }
+
+    public void setVolume(double volume) {
+        this.volume = volume;
+    }
 }

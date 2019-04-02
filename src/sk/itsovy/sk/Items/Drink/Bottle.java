@@ -26,4 +26,8 @@ public class Bottle extends Drink implements Pcs {
     public double getTotalPrice() {
         return amount*getPrice();
     }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 }

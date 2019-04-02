@@ -20,6 +20,10 @@ public class Pastry extends Food implements Pcs {
         this.amount = amount;
     }
 
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
     public Pastry(String name, double price, int amount) {
         this(name,price,amount,-1);
     }

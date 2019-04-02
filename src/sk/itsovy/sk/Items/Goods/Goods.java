@@ -21,6 +21,10 @@ public class Goods extends Item implements Pcs {
         this.type = type;
     }
 
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
     @Override
     public double getTotalPrice() {
         return amount*getPrice();
