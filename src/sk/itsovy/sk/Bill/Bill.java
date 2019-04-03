@@ -47,7 +47,11 @@ public class Bill {
             }
 
             if(pocet<=Global.MAXITEMS) {
-                list.add(item);
+                Item inBill = checkItem(item);
+                if(inBill == null)
+                    list.add(item);
+                else
+                    updateItem(inBill, item);
                 pocet++;
             }
             else{
@@ -90,27 +94,27 @@ public class Bill {
         System.out.println(getFinalUSDPrice(Internet.executePost()));
     }
 
-    public void checkItem(Item item) {
-        for (Item i : list) {
-            if (i instanceof Bottle && item.getName().toLowerCase() == i.getName().toLowerCase()){
-                //TODO
-            }
-            if (i instanceof Draft && item.getName().toLowerCase() == i.getName().toLowerCase()){
-                //TODO
-            }
-            if (i instanceof Goods && item.getName().toLowerCase() == i.getName().toLowerCase()){
+    public Item checkItem(Item item){
+        for (Item item1: list) {
+            if(item.getName().toLowerCase().equals(item1.getName().toLowerCase()) && item.getClass().getName().equals(item1.getClass().getName()))
+                return item1;
+        }
 
-            }
-            if (i instanceof Pastry && item.getName().toLowerCase() == i.getName().toLowerCase()){
+        return null;
+    }
 
-            }
-            if (i instanceof Fruit && item.getName().toLowerCase() == i.getName().toLowerCase()){
-
-            }
-            if (i instanceof Sweets && item.getName().toLowerCase() == i.getName().toLowerCase()){
-
-            }
-
+    public void updateItem(Item newItem, Item oldItem){
+        if (newItem instanceof DraftInterface){
+            double newVolume = ((DraftInterface) newItem).getVolume() + ((DraftInterface) oldItem).getVolume();
+            ((DraftInterface) newItem).setVolume(newVolume);
+        }
+        else if (newItem instanceof Fruit){
+            double newWeight = ((Fruit) newItem).getWeight() + ((Fruit) oldItem).getWeight();
+            ((Fruit) newItem).setWeight(newWeight);
+        }
+        else if(newItem instanceof Pcs){
+            int newAmount = ((Pcs) newItem).getAmount() + ((Pcs) oldItem).getAmount();
+            ((Pcs) newItem).setAmount(newAmount);
         }
     }
 
