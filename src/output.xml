@@ -1,1 +1,33 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><bill><DateTime>22:57:08.031807700</DateTime><items><item><name>Milk 1,5%</name><price>0.59</price><amount>2 pcs</amount></item><item><name>Pizza salama</name><price>1.1</price><amount>2 pcs</amount></item><item><name>Apple</name><price>0.59</price><weight>370.0 g</weight></item><item><name>Pencil</name><price>0.2</price><amount>1 pcs</amount></item><item><name>Vinea red</name><price>1.2</price><volume>0.5 L</volume></item></items><totalPrice>6.36</totalPrice><totalUSDPrice>7.13</totalUSDPrice></bill>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bill>
+    <DateTime>2019-04-05T23:03:10.066690400</DateTime>
+    <items>
+        <item>
+            <name>Milk 1,5%</name>
+            <price>0.59</price>
+            <amount>2 pcs</amount>
+        </item>
+        <item>
+            <name>Pizza salama</name>
+            <price>1.1</price>
+            <amount>2 pcs</amount>
+        </item>
+        <item>
+            <name>Apple</name>
+            <price>0.59</price>
+            <weight>370.0 g</weight>
+        </item>
+        <item>
+            <name>Pencil</name>
+            <price>0.2</price>
+            <amount>1 pcs</amount>
+        </item>
+        <item>
+            <name>Vinea red</name>
+            <price>1.2</price>
+            <volume>0.5 L</volume>
+        </item>
+    </items>
+    <totalPrice>6.36</totalPrice>
+    <totalUSDPrice>7.13</totalUSDPrice>
+</bill>

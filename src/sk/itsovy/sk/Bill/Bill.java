@@ -30,8 +30,7 @@ public class Bill {
     boolean open;
     private int pocet;
     private List<Item> list;
-    private LocalDate date = LocalDate.now();
-    private LocalTime time = LocalTime.now();
+    private LocalDateTime date = LocalDateTime.now();
 
 
 
@@ -125,7 +124,7 @@ public class Bill {
 
     public void end() {
         if (open){
-            date=LocalDate.now();
+            date=LocalDateTime.now();
             System.out.println("Date: "+date);
         }
         open=false;
@@ -154,10 +153,9 @@ public class Bill {
         return Math.round(total*usd*100.0)/100.0;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDateTime() {
         return date;
     }
-    public LocalTime getTime() {return  time; }
 
 
 }

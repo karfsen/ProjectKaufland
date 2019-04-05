@@ -38,7 +38,7 @@ public class Generatexml {
         double totalUSD=bill.getFinalUSDPrice(Internet.executePost());
         Element datetime = doc.createElement("DateTime");
         rootElement.appendChild(datetime);
-        datetime.appendChild(doc.createTextNode(String.valueOf(bill.getTime())));
+        datetime.appendChild(doc.createTextNode(String.valueOf(bill.getDateTime())));
         Element items = doc.createElement("items");
         rootElement.appendChild(items);
 

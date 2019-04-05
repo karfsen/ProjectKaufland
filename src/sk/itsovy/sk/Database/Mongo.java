@@ -88,8 +88,7 @@ public class Mongo {
 
 
 
-        org.bson.Document documentBill = new org.bson.Document("date", String.valueOf(bill.getDate()))
-                .append("time", String.valueOf(bill.getTime()))
+        org.bson.Document documentBill = new org.bson.Document("date", String.valueOf(bill.getDateTime()))
                 .append("totalPrice", bill.getFinalPrice());
         collectionBill.insertOne(documentBill);
         System.out.println("Document Bill insertion succesfull");
