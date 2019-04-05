@@ -10,12 +10,12 @@ public class Global {
     public static final String password="123456";
     public static final String url = "jdbc:mysql://localhost:3306/kaufland";
 
-    public static void println(String message){
-        System.out.println(message);
-    }
-    public static void print(String message){
-        System.out.print(message);
-    }
+    public static final String mongoPort="27017";
+    public static final String mongoURL="mongodb://localhost:"+mongoPort;
+    public static final String userMongo="kaufland";
+    public static final String mongoPW="1234";
+    public static final String mongoDB="kaufland";
+
 
     public static Connection getConnection(){
         Connection connection;

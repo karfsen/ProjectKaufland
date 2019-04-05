@@ -3,6 +3,7 @@ package sk.itsovy.sk;
 import org.json.simple.parser.ParseException;
 import sk.itsovy.sk.Bill.Bill;
 import sk.itsovy.sk.Database.Database;
+import sk.itsovy.sk.Database.Mongo;
 import sk.itsovy.sk.Items.Drink.Bottle;
 import sk.itsovy.sk.Items.Drink.Draft;
 import sk.itsovy.sk.Items.Drink.Drink;
@@ -59,6 +60,9 @@ public class Application {
 
         Database db=Database.getInstance();
         db.insertNewBill(bill);
+
+        Mongo mongo=Mongo.getMdb();
+        mongo.insertBillToMDB(bill);
 
     }
 }
